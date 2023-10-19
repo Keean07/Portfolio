@@ -32,6 +32,14 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
 }
+#welcomeContainer{
+	display: flex;
+}
+
+#welcomeImage {
+	padding: 50px;
+	width: 500px;
+}
 
 ol, ul {
 	list-style: none;
