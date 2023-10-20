@@ -1801,6 +1801,13 @@ input, select, textarea {
 
 /* List */
 
+	.listDiv{
+		max-width: 50%;
+		text-align: center;
+		margin-left: 25%;
+		margin-right:25%;
+	}
+
 	ul {
 		list-style: disc;
 		padding-left: 1em;
