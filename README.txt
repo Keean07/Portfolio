@@ -1,3 +1,7 @@
+Welcome to my Portfolio. This is where I showcase my favorite pieces of work from my time at the University of London.
+
+It was made using a HTML template from HTML5 UP. Its description is below:
+
 Prologue by HTML5 UP
 html5up.net | @ajlkn
 Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
