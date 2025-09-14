@@ -1,69 +1,71 @@
-# React + TypeScript + Vite
+# React Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern React + TypeScript portfolio website built with Vite. This application replaces the original static HTML portfolio with a fully interactive React webapp while maintaining identical visual design and functionality.
 
-Currently, two official plugins are available:
+## 🚀 Quick Start
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Prerequisites
+- Node.js (version 18 or higher)
+- npm or yarn package manager
 
-## Expanding the ESLint configuration
+### Installation & Running
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1. **Navigate to the React app directory:**
+   ```bash
+   cd react-portfolio
+   ```
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+3. **Start the development server:**
+   ```bash
+   npm run dev
+   ```
+   
+   The app will be available at: **http://localhost:5173/**
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Available Scripts
+
+- `npm run dev` - Start development server (hot reload enabled)
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build locally
+- `npm run lint` - Run ESLint for code quality checks
+
+## 🛠️ Technology Stack
+
+- **React 19** - Latest React with modern features
+- **TypeScript** - Type-safe development
+- **Vite** - Fast build tool and dev server
+- **React Router** - Client-side routing for navigation
+- **ESLint** - Code linting and quality assurance
+
+## 📁 Project Structure
+
+```
+react-portfolio/
+├── src/
+│   ├── components/     # React components (Header, Portfolio, About, etc.)
+│   ├── pages/         # Page components (Home, ProjectPage)
+│   └── App.tsx        # Main app with routing
+├── public/            # Static assets (images, project HTML files)
+├── dist/              # Production build output
+└── index.html         # Main HTML template
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🎯 Features
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- **Responsive Design** - Works on all device sizes
+- **Smooth Scrolling** - Navigate between sections seamlessly  
+- **Dynamic Routing** - Individual pages for each portfolio project
+- **Project Showcase** - Interactive portfolio with project details
+- **Contact Integration** - Direct links to email and social profiles
+- **Performance Optimized** - Fast loading and efficient asset handling
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🔧 Development
+
+The app uses Vite for development with Hot Module Replacement (HMR) for instant updates during development. TypeScript provides type safety and better development experience.
+
+For production deployment, run `npm run build` to generate optimized static files in the `dist/` directory.

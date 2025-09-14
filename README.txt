@@ -2,6 +2,21 @@ Welcome to my Portfolio. This is where I showcase my favorite pieces of work fro
 
 This portfolio has been modernized from basic HTML/CSS/JavaScript to a React application while preserving the original design and functionality.
 
+## 🚀 How to Run the Webapp
+
+**The React portfolio is located in the `react-portfolio/` directory.**
+
+### Quick Start:
+```bash
+cd react-portfolio
+npm install
+npm run dev
+```
+
+The webapp will be available at: **http://localhost:5173/**
+
+For detailed instructions and development information, see the [React Portfolio README](react-portfolio/README.md).
+
 ## Technology Stack
 
 - **React 19** with TypeScript
