@@ -20,7 +20,7 @@ const Home: React.FC = () => {
         '/assets/js/main.js'
       ];
 
-      scripts.forEach((src, index) => {
+      scripts.forEach((src) => {
         const script = document.createElement('script');
         script.src = src;
         script.async = false;
