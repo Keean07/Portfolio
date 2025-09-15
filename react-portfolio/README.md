@@ -64,6 +64,28 @@ react-portfolio/
 - **Contact Integration** - Direct links to email and social profiles
 - **Performance Optimized** - Fast loading and efficient asset handling
 
+## 📍 Portfolio Project Navigation
+
+The webapp includes full routing support for all portfolio projects:
+
+### Available Routes:
+- `/` - Main portfolio homepage
+- `/LocalCommunityWebsite` - BraaiMasters gaming community site
+- `/drawingApp` - Interactive P5.JS drawing application
+- `/p5Assignments` - 8 interactive P5.JS programming demos
+- `/DigitClassification` - TensorFlow machine learning notebook
+- `/coinhop` - CoinHop game project page
+- `/CyberSpider` - CyberSpider game project page
+
+### Navigation Features:
+- **Click any portfolio item** to navigate to its dedicated project page
+- **Floating back button** on all project pages for easy navigation
+- **Built-in navigation** in project HTML files links back to main portfolio
+- **Loading and error states** with fallback navigation options
+- **Client-side routing** ensures fast, seamless navigation without page reloads
+
+All project pages maintain the original functionality while providing integrated navigation back to the main portfolio.
+
 ## 🔧 Development
 
 The app uses Vite for development with Hot Module Replacement (HMR) for instant updates during development. TypeScript provides type safety and better development experience.
