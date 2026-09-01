@@ -7,16 +7,25 @@ export default function Nav() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-canvas/80 backdrop-blur-md">
-      <div className="mx-auto flex h-[62px] max-w-[1120px] items-center justify-between px-5 sm:px-8">
+      <div className="mx-auto flex h-[58px] max-w-[1120px] items-center justify-between gap-3 px-4 sm:h-[62px] sm:px-8">
         <a
           href="#top"
-          className="flex items-baseline gap-[0.5ch] font-mono text-[0.95rem] font-semibold tracking-tight"
+          className="whitespace-nowrap font-mono text-[0.9rem] font-semibold tracking-tight sm:text-[0.95rem]"
         >
-          keean ferreira <span className="font-normal text-ink-dim">/ portfolio</span>
-          <span className="text-accent motion-safe:animate-[blink_1.15s_steps(1)_infinite]">_</span>
+          keean ferreira
+          <span className="hidden font-normal text-ink-dim sm:inline">&nbsp;/ portfolio</span>
+          <span
+            className="text-accent motion-safe:animate-[blink_1.15s_steps(1)_infinite]"
+            aria-hidden="true"
+          >
+            _
+          </span>
         </a>
 
-        <nav className="flex items-center gap-4 font-mono text-[0.8rem] sm:gap-8" aria-label="Primary">
+        <nav
+          className="flex items-center gap-3 font-mono text-[0.8rem] sm:gap-6"
+          aria-label="Primary"
+        >
           <a className={`hidden sm:inline ${linkCls}`} href="#work">
             work
           </a>
@@ -30,16 +39,17 @@ export default function Nav() {
           <button
             type="button"
             onClick={toggle}
-            aria-pressed={theme === 'light'}
-            className="rounded-full border border-line-strong px-3 py-1 text-ink-mid transition-colors hover:border-ink-dim hover:text-ink"
+            aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}
+            className="whitespace-nowrap rounded-full border border-line-strong px-2.5 py-1 text-ink-mid transition-colors hover:border-ink-dim hover:text-ink sm:px-3"
           >
-            {theme === 'dark' ? 'light mode' : 'dark mode'}
+            <span className="sm:hidden">{theme === 'dark' ? 'light' : 'dark'}</span>
+            <span className="hidden sm:inline">{theme === 'dark' ? 'light mode' : 'dark mode'}</span>
           </button>
           <a
-            className="rounded-md bg-accent px-3 py-1.5 text-white transition-colors hover:bg-accent-strong"
+            className="whitespace-nowrap rounded-md bg-accent px-2.5 py-1.5 text-white transition-colors hover:bg-accent-strong sm:px-3"
             href="#contact"
           >
-            CV ↗
+            contact
           </a>
         </nav>
       </div>

@@ -1,21 +1,36 @@
 import Section from './Section';
 
-const skillGroups = [
-  { label: 'Languages', items: ['C#', 'JavaScript', 'Python', 'C++', 'HTML/CSS'] },
-  { label: 'Games & graphics', items: ['Unity', 'p5.js', 'WebGL', 'Shaders'] },
-  { label: 'Data & ML', items: ['TensorFlow', 'NumPy', 'Jupyter'] },
+const skillPanels = [
+  {
+    label: 'Now',
+    items: ['TypeScript', 'React', 'Node.js', 'SAP / ABAP', 'PostgreSQL', 'Docker'],
+  },
+  {
+    label: 'In these projects',
+    items: ['Unity', 'C#', 'p5.js', 'WebGL', 'TensorFlow', 'Python'],
+  },
 ];
 
 const timeline = [
   {
     when: '2019 — 2023',
-    what: 'BSc Computer Science',
-    note: 'University of London — studied fully online, self-paced.',
+    what: 'BSc Computer Science — First-Class Honours',
+    note: 'University of London, studied online from South Africa.',
   },
   {
-    when: '2023',
-    what: 'Final-year project: CoinHop',
-    note: 'Solo-built and published a complete Unity game.',
+    when: '2023 — 2026',
+    what: 'Software Developer — Lark & Stern Consulting',
+    note: 'SAPUI5 / Fiori front ends and ABAP on S/4HANA for pharma clients.',
+  },
+  {
+    when: '2026 — now',
+    what: 'Software Engineer — BSI-Auto',
+    note: 'Features and refactoring in large legacy codebases for dealership networks.',
+  },
+  {
+    when: 'Ongoing',
+    what: 'RealtyGenie — independent SaaS',
+    note: 'A full-stack platform for South African real-estate agencies.',
   },
 ];
 
@@ -26,37 +41,34 @@ const Tag = ({ children }: { children: string }) => (
 );
 
 const PanelLabel = ({ children }: { children: string }) => (
-  <div className="mb-4 font-mono text-[0.7rem] uppercase tracking-[0.14em] text-ink-dim">{children}</div>
+  <div className="mb-4 font-mono text-[0.7rem] uppercase tracking-[0.14em] text-ink-dim">
+    {children}
+  </div>
 );
 
 export default function About() {
   return (
-    <Section
-      id="about"
-      eyebrow="// about"
-      title="Self-directed, remote by default, drawn to real-time work."
-    >
-      <div className="mt-[clamp(2.5rem,6vw,3.5rem)] grid gap-[clamp(2rem,6vw,4.5rem)] md:grid-cols-[1.15fr_0.85fr]">
+    <Section id="about" eyebrow="// about" title="A software developer now — this is where I started.">
+      <div className="mt-[clamp(2.5rem,6vw,3.5rem)] grid gap-[clamp(2rem,6vw,4rem)] md:grid-cols-[1.15fr_0.85fr]">
         <div className="max-w-[60ch] space-y-[1.1rem] text-ink-mid">
           <p>
-            I'm a Computer Science graduate (University of London, 2019–2023), based in South Africa.
-            My degree ran the full width of the discipline — graphics programming, machine learning,
-            computer security, databases, 3D animation, and computational maths — and I did all of it
-            remotely while the university sat in London.
+            I&apos;m a software developer based in Pretoria, South Africa (GMT+2). I finished a
+            First-Class Honours BSc in Computer Science through the University of London in 2023, and
+            the three years since have gone into enterprise SAP development, full-stack web
+            applications, and a SaaS product of my own.
           </p>
           <p>
-            What I keep returning to is work that renders, simulates, and responds: creative-coding
-            sketches, a paint tool, game prototypes, a published Unity title. I want to build worlds
-            people spend real time in, and I'm looking for a games or graphics team to do it with.
+            The work on this page is older — coursework and side projects from a degree that leaned
+            hard into graphics, 3D, and games. It isn&apos;t what I do day to day anymore, but it&apos;s
+            the stuff I most enjoyed building, so it stays.
           </p>
         </div>
 
         <div>
-          <PanelLabel>Focus</PanelLabel>
-          <div className="space-y-[1.4rem]">
-            {skillGroups.map((g) => (
+          <div className="grid gap-[1.4rem] sm:grid-cols-2 md:grid-cols-1">
+            {skillPanels.map((g) => (
               <div key={g.label}>
-                <h3 className="mb-2 text-[0.9rem] font-semibold text-ink">{g.label}</h3>
+                <PanelLabel>{g.label}</PanelLabel>
                 <div className="flex flex-wrap gap-1.5">
                   {g.items.map((i) => (
                     <Tag key={i}>{i}</Tag>

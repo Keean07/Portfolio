@@ -15,7 +15,8 @@ export default function ProjectCard({ project }: { project: Project }) {
         <img
           src={asset(project.image)}
           alt={`${project.title} screenshot`}
-          loading="lazy"
+          width={1400}
+          height={788}
           className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
         />
       ) : (
@@ -47,9 +48,11 @@ export default function ProjectCard({ project }: { project: Project }) {
         </a>
       )}
 
-      <div className="flex flex-1 flex-col gap-2.5 p-6">
-        <div className="flex items-baseline justify-between gap-4">
-          <h3 className="text-[1.18rem] font-semibold tracking-[-0.015em]">{project.title}</h3>
+      <div className="flex flex-1 flex-col gap-2.5 p-5 sm:p-6">
+        <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
+          <h3 className="text-[1.15rem] font-semibold tracking-[-0.015em] sm:text-[1.18rem]">
+            {project.title}
+          </h3>
           <span className="whitespace-nowrap font-mono text-[0.72rem] tabular-nums text-ink-dim">
             {project.year} &middot; {project.role}
           </span>
@@ -68,7 +71,7 @@ export default function ProjectCard({ project }: { project: Project }) {
           ))}
         </div>
 
-        <div className="mt-auto flex gap-5 pt-3.5 font-mono text-[0.76rem]">
+        <div className="mt-auto flex flex-wrap gap-x-5 gap-y-1.5 pt-3.5 font-mono text-[0.76rem]">
           {project.caseStudy && (
             <Link
               to={casePath}

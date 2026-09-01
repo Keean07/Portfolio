@@ -29,22 +29,23 @@ export default function CaseStudyPage() {
   return (
     <>
       <header className="sticky top-0 z-50 border-b border-line bg-canvas/80 backdrop-blur-md">
-        <div className="mx-auto flex h-[62px] max-w-[1120px] items-center justify-between px-5 font-mono text-[0.8rem] sm:px-8">
+        <div className="mx-auto flex h-[58px] max-w-[1120px] items-center justify-between gap-3 px-4 font-mono text-[0.8rem] sm:h-[62px] sm:px-8">
           <Link to="/#work" className="text-ink-mid transition-colors hover:text-ink">
             ← selected work
           </Link>
           <button
             type="button"
             onClick={toggle}
-            aria-pressed={theme === 'light'}
-            className="rounded-full border border-line-strong px-3 py-1 text-ink-mid transition-colors hover:border-ink-dim hover:text-ink"
+            aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}
+            className="whitespace-nowrap rounded-full border border-line-strong px-2.5 py-1 text-ink-mid transition-colors hover:border-ink-dim hover:text-ink sm:px-3"
           >
-            {theme === 'dark' ? 'light mode' : 'dark mode'}
+            <span className="sm:hidden">{theme === 'dark' ? 'light' : 'dark'}</span>
+            <span className="hidden sm:inline">{theme === 'dark' ? 'light mode' : 'dark mode'}</span>
           </button>
         </div>
       </header>
 
-      <main className="mx-auto max-w-[1120px] px-5 py-[clamp(3rem,8vw,6rem)] sm:px-8">
+      <main className="mx-auto max-w-[1120px] px-4 py-[clamp(2.5rem,8vw,6rem)] sm:px-8">
         <span className="eyebrow">
           // case study — {String(pos + 1).padStart(2, '0')}
         </span>

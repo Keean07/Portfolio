@@ -6,24 +6,24 @@ const links = [
 
 export default function Contact() {
   return (
-    <section id="contact" className="border-t border-line py-[clamp(4.5rem,11vw,8.5rem)]">
-      <div className="mx-auto max-w-[1120px] px-5 sm:px-8">
+    <section id="contact" className="border-t border-line py-[clamp(4rem,11vw,8.5rem)]">
+      <div className="mx-auto max-w-[1120px] px-4 sm:px-8">
         <span className="eyebrow">// contact</span>
-        <h2 className="my-6 max-w-[16ch] font-mono text-[clamp(2rem,6vw,3.4rem)] font-medium tracking-[-0.03em]">
-          Let&apos;s build something<span className="text-accent">_</span>
+        <h2 className="my-5 max-w-[14ch] font-mono text-[clamp(1.9rem,7vw,3.4rem)] font-medium tracking-[-0.03em] sm:my-6">
+          Get in touch<span className="text-accent">_</span>
         </h2>
-        <p className="max-w-[60ch] text-ink-mid">
-          Open to games and graphics roles — remote, or relocating for the right team. The fastest
-          way to reach me is email.
+        <p className="max-w-[58ch] text-ink-mid">
+          I&apos;m a software developer in Pretoria (GMT+2), working remotely with UK-based teams.
+          Always happy to talk about interesting work — email is the fastest way to reach me.
         </p>
-        <div className="mt-6 flex flex-wrap gap-x-8 gap-y-4 font-mono text-[0.9rem]">
+        <div className="mt-6 flex flex-col gap-3 font-mono text-[0.88rem] sm:flex-row sm:flex-wrap sm:gap-x-8 sm:gap-y-4 sm:text-[0.9rem]">
           {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
               target={l.href.startsWith('http') ? '_blank' : undefined}
               rel={l.href.startsWith('http') ? 'noreferrer' : undefined}
-              className="border-b border-line-strong pb-0.5 text-ink-mid transition-colors hover:border-accent hover:text-accent"
+              className="w-fit border-b border-line-strong pb-0.5 text-ink-mid transition-colors hover:border-accent hover:text-accent"
             >
               {l.label}
             </a>

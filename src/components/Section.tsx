@@ -12,11 +12,11 @@ export default function Section({
   children: ReactNode;
 }) {
   return (
-    <section id={id} className="border-t border-line py-[clamp(4.5rem,11vw,8.5rem)]">
-      <div className="mx-auto max-w-[1120px] px-5 sm:px-8">
+    <section id={id} className="border-t border-line py-[clamp(4rem,11vw,8.5rem)]">
+      <div className="mx-auto max-w-[1120px] px-4 sm:px-8">
         <span className="eyebrow">{eyebrow}</span>
         {title && (
-          <h2 className="mt-3 max-w-[34ch] font-mono text-[clamp(1.4rem,3vw,1.9rem)] font-medium leading-snug">
+          <h2 className="mt-3 max-w-[34ch] font-mono text-[clamp(1.35rem,4.5vw,1.9rem)] font-medium leading-snug">
             {title}
           </h2>
         )}
