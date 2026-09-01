@@ -1,0 +1,176 @@
+@import "tailwindcss";
+
+/* ============================================================
+   "Coordinate Space" — design tokens
+   Dark-first. The raw vars are swapped for light / system;
+   @theme inline maps them into Tailwind's utility namespace so
+   every `bg-canvas` / `text-ink` / `border-line` stays reactive.
+   ============================================================ */
+
+:root,
+:root[data-theme="dark"] {
+  --canvas: #0b0d13;
+  --surface: #12151d;
+  --panel: #191d28;
+  --line: #262c3b;
+  --line-strong: #354056;
+  --grid: rgba(124, 146, 214, 0.06);
+  --ink: #e9ebf3;
+  --ink-mid: #b7bccf;
+  --ink-dim: #848ba2;
+  --accent: #ff4d84;
+  --accent-strong: #ff77a1;
+  --accent-dim: rgba(255, 77, 132, 0.13);
+  --shadow-panel: 0 24px 60px -28px rgba(0, 0, 0, 0.75);
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --canvas: #f5f6fb;
+    --surface: #ffffff;
+    --panel: #eef0f7;
+    --line: #e0e3ef;
+    --line-strong: #ccd2e2;
+    --grid: rgba(38, 58, 120, 0.07);
+    --ink: #14171f;
+    --ink-mid: #3b4256;
+    --ink-dim: #5f6883;
+    --accent: #d61b63;
+    --accent-strong: #ac1550;
+    --accent-dim: rgba(214, 27, 99, 0.1);
+    --shadow-panel: 0 22px 44px -26px rgba(28, 38, 78, 0.3);
+    color-scheme: light;
+  }
+}
+
+:root[data-theme="light"] {
+  --canvas: #f5f6fb;
+  --surface: #ffffff;
+  --panel: #eef0f7;
+  --line: #e0e3ef;
+  --line-strong: #ccd2e2;
+  --grid: rgba(38, 58, 120, 0.07);
+  --ink: #14171f;
+  --ink-mid: #3b4256;
+  --ink-dim: #5f6883;
+  --accent: #d61b63;
+  --accent-strong: #ac1550;
+  --accent-dim: rgba(214, 27, 99, 0.1);
+  --shadow-panel: 0 22px 44px -26px rgba(28, 38, 78, 0.3);
+  color-scheme: light;
+}
+
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-panel: var(--panel);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-ink: var(--ink);
+  --color-ink-mid: var(--ink-mid);
+  --color-ink-dim: var(--ink-dim);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-dim: var(--accent-dim);
+
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --shadow-panel: var(--shadow-panel);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--canvas);
+    background-image: radial-gradient(circle, var(--grid) 1px, transparent 1.4px);
+    background-size: 34px 34px;
+    background-position: -17px -17px;
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+@layer components {
+  /* code-comment section marker, e.g. "// selected work" */
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6em;
+  }
+
+  .eyebrow::before {
+    content: "";
+    width: 26px;
+    height: 1px;
+    background: var(--accent);
+    opacity: 0.6;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .anim-fade-up {
+    animation: fade-up 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+  .anim-fade-up-delayed {
+    animation: fade-up 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) 0.08s both;
+  }
+}
