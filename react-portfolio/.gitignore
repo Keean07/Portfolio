@@ -12,6 +12,12 @@ dist
 dist-ssr
 *.local
 
+# Project demos copied in from the repo root by scripts/prep-demos.mjs
+/public/DrawingApp/
+/public/P5JS/
+/public/DigitClassification/
+/public/LocalCommunityWebsite/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

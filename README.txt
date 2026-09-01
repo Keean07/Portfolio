@@ -13,16 +13,18 @@ npm install
 npm run dev
 ```
 
-The webapp will be available at: **http://localhost:5173/**
+The webapp will be available at: **http://localhost:5173/Portfolio/**
 
 For detailed instructions and development information, see the [React Portfolio README](react-portfolio/README.md).
+
+The live site is built and deployed to GitHub Pages automatically on every push to
+`main` via `.github/workflows/deploy.yml`.
 
 ## Technology Stack
 
 - **React 19** with TypeScript
 - **Vite** for build tooling and development
-- **React Router** for client-side navigation
-- **HTML5 UP** template for styling
+- **HTML5 UP** "Prologue" template for styling
 
 ## Development
 
@@ -34,7 +36,10 @@ The portfolio uses a component-based React architecture:
 - `Contact`: Contact information and links
 - `Footer`: Copyright and design credits
 
-Individual project pages are dynamically loaded from the original HTML files, preserving all existing content and functionality.
+Each project has its own static page in `react-portfolio/public/` (e.g. `drawingApp.html`);
+the portfolio grid links straight to these. The interactive demos themselves
+(`DrawingApp/`, `P5JS/`, `DigitClassification/`, `LocalCommunityWebsite/`) live at the
+repo root and are copied into the build by `react-portfolio/scripts/prep-demos.mjs`.
 
 ## Original Credits:
 	Icons:

@@ -1,4 +1,5 @@
 import React from 'react';
+import { asset } from '../lib/asset';
 
 const Header: React.FC = () => {
   return (
@@ -7,7 +8,7 @@ const Header: React.FC = () => {
         {/* Logo */}
         <div id="logo">
           <span className="image avatar48">
-            <img src="/images/AvatarPhoto.jpg" alt="" />
+            <img src={asset('images/AvatarPhoto.jpg')} alt="" />
           </span>
           <h1 id="title">Keean Ferreira</h1>
           <p>BSc Computer Science Graduate</p>

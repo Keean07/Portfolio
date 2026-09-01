@@ -1,93 +1,44 @@
 # React Portfolio
 
-A modern React + TypeScript portfolio website built with Vite. This application replaces the original static HTML portfolio with a fully interactive React webapp while maintaining identical visual design and functionality.
+A React + TypeScript + Vite rebuild of the portfolio site, keeping the original
+HTML5 UP "Prologue" look and the standalone project demos.
 
-## 🚀 Quick Start
+## Quick start
 
-### Prerequisites
-- Node.js (version 18 or higher)
-- npm or yarn package manager
-
-### Installation & Running
-
-1. **Navigate to the React app directory:**
-   ```bash
-   cd react-portfolio
-   ```
-
-2. **Install dependencies:**
-   ```bash
-   npm install
-   ```
-
-3. **Start the development server:**
-   ```bash
-   npm run dev
-   ```
-   
-   The app will be available at: **http://localhost:5173/**
-
-### Available Scripts
-
-- `npm run dev` - Start development server (hot reload enabled)
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build locally
-- `npm run lint` - Run ESLint for code quality checks
-
-## 🛠️ Technology Stack
-
-- **React 19** - Latest React with modern features
-- **TypeScript** - Type-safe development
-- **Vite** - Fast build tool and dev server
-- **React Router** - Client-side routing for navigation
-- **ESLint** - Code linting and quality assurance
-
-## 📁 Project Structure
-
-```
-react-portfolio/
-├── src/
-│   ├── components/     # React components (Header, Portfolio, About, etc.)
-│   ├── pages/         # Page components (Home, ProjectPage)
-│   └── App.tsx        # Main app with routing
-├── public/            # Static assets (images, project HTML files)
-├── dist/              # Production build output
-└── index.html         # Main HTML template
+```bash
+cd react-portfolio
+npm install
+npm run dev        # http://localhost:5173/Portfolio/
 ```
 
-## 🎯 Features
+## Scripts
 
-- **Responsive Design** - Works on all device sizes
-- **Smooth Scrolling** - Navigate between sections seamlessly  
-- **Dynamic Routing** - Individual pages for each portfolio project
-- **Project Showcase** - Interactive portfolio with project details
-- **Contact Integration** - Direct links to email and social profiles
-- **Performance Optimized** - Fast loading and efficient asset handling
+| Script            | What it does |
+|-------------------|--------------|
+| `npm run dev`     | Sync demos, then start the Vite dev server |
+| `npm run build`   | Sync demos → type-check → `vite build` → write `dist/404.html` |
+| `npm run preview` | Serve the production build locally |
+| `npm run lint`    | ESLint |
+| `npm run prep-demos` | Copy the root-level demo folders into `public/` (run automatically by `dev`/`build`) |
 
-## 📍 Portfolio Project Navigation
+## How it's put together
 
-The webapp includes full routing support for all portfolio projects:
+- **`src/`** – the React homepage (`Home` → `Header / Intro / Portfolio / About / Contact / Footer`).
+  The original theme CSS is loaded via `<link>` in `index.html`; the original jQuery
+  scripts are injected by `Home.tsx` after mount.
+- **`public/*.html`** – the per-project pages (`drawingApp.html`, `p5Assignments.html`, …).
+  These are plain static pages; the portfolio cards link straight to them, so there is
+  **no client-side routing for projects** — only `/` is a React route.
+- **Project demos** (`DrawingApp/`, `P5JS/`, `DigitClassification/`, `LocalCommunityWebsite/`)
+  live at the **repo root** and are the single source of truth. `scripts/prep-demos.mjs`
+  copies them into `public/` (git-ignored there) so Vite bundles them into `dist/`.
 
-### Available Routes:
-- `/` - Main portfolio homepage
-- `/LocalCommunityWebsite` - BraaiMasters gaming community site
-- `/drawingApp` - Interactive P5.JS drawing application
-- `/p5Assignments` - 8 interactive P5.JS programming demos
-- `/DigitClassification` - TensorFlow machine learning notebook
-- `/coinhop` - CoinHop game project page
-- `/CyberSpider` - CyberSpider game project page
+## Deployment
 
-### Navigation Features:
-- **Click any portfolio item** to navigate to its dedicated project page
-- **Floating back button** on all project pages for easy navigation
-- **Built-in navigation** in project HTML files links back to main portfolio
-- **Loading and error states** with fallback navigation options
-- **Client-side routing** ensures fast, seamless navigation without page reloads
+Pushing to `main` runs [`.github/workflows/deploy.yml`](../.github/workflows/deploy.yml),
+which builds this app with `VITE_BASE=/Portfolio/` and publishes `dist/` to GitHub Pages.
 
-All project pages maintain the original functionality while providing integrated navigation back to the main portfolio.
+**One-time setup:** in the repo's *Settings → Pages*, set **Source = "GitHub Actions"**.
 
-## 🔧 Development
-
-The app uses Vite for development with Hot Module Replacement (HMR) for instant updates during development. TypeScript provides type safety and better development experience.
-
-For production deployment, run `npm run build` to generate optimized static files in the `dist/` directory.
+The base path is `/Portfolio/` (project site at `keean07.github.io/Portfolio/`).
+For a root/custom-domain deployment, build with `VITE_BASE=/ npm run build`.

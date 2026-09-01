@@ -1,2 +1,5 @@
-/* Import the original portfolio CSS */
-@import url('/assets/css/main.css');
+/*
+ * The original "Prologue" theme CSS is loaded via a <link> tag in index.html
+ * (public/assets/css/main.css) so its relative font/image URLs resolve as-is.
+ * App-specific overrides go here.
+ */

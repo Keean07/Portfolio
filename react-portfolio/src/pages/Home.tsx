@@ -5,40 +5,38 @@ import Portfolio from '../components/Portfolio';
 import About from '../components/About';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
+import { asset } from '../lib/asset';
+
+// Original "Prologue" theme scripts, loaded in order after the DOM is ready.
+const THEME_SCRIPTS = [
+  'assets/js/jquery.min.js',
+  'assets/js/jquery.scrolly.min.js',
+  'assets/js/jquery.scrollex.min.js',
+  'assets/js/browser.min.js',
+  'assets/js/breakpoints.min.js',
+  'assets/js/util.js',
+  'assets/js/main.js',
+];
 
 const Home: React.FC = () => {
   useEffect(() => {
-    // Load original JavaScript functionality
-    const loadScripts = () => {
-      const scripts = [
-        '/assets/js/jquery.min.js',
-        '/assets/js/jquery.scrolly.min.js',
-        '/assets/js/jquery.scrollex.min.js',
-        '/assets/js/browser.min.js',
-        '/assets/js/breakpoints.min.js',
-        '/assets/js/util.js',
-        '/assets/js/main.js'
-      ];
+    document.body.classList.add('is-preload');
 
-      scripts.forEach((src) => {
-        const script = document.createElement('script');
-        script.src = src;
-        script.async = false;
-        script.onload = () => {
-          console.log(`Loaded script: ${src}`);
-        };
-        document.head.appendChild(script);
-      });
-    };
+    const injected: HTMLScriptElement[] = [];
+    for (const path of THEME_SCRIPTS) {
+      const src = asset(path);
+      if (document.querySelector(`script[data-theme-script="${src}"]`)) continue;
+      const script = document.createElement('script');
+      script.src = src;
+      script.async = false;
+      script.dataset.themeScript = src;
+      document.body.appendChild(script);
+      injected.push(script);
+    }
 
-    // Add body class for original styling
-    document.body.className = 'is-preload';
-
-    loadScripts();
-
-    // Cleanup function
     return () => {
-      document.body.className = '';
+      injected.forEach((s) => s.remove());
+      document.body.classList.remove('is-preload');
     };
   }, []);
 

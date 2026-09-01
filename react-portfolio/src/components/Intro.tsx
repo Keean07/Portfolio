@@ -1,4 +1,5 @@
 import React from 'react';
+import { asset } from '../lib/asset';
 
 const Intro: React.FC = () => {
   return (
@@ -19,7 +20,7 @@ const Intro: React.FC = () => {
               <a href="#about" className="button scrolly">About Me</a>
               <a href="#contact" className="button scrolly">Contact Me</a>
             </div>
-            <img src="/images/CV Cover Photo.jpg" id="welcomeImage" alt="Keean Ferreira" />
+            <img src={asset('images/CV Cover Photo.jpg')} id="welcomeImage" alt="Keean Ferreira" />
           </div>
         </header>
       </div>

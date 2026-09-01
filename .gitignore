@@ -1,10 +1,9 @@
-# React development files and build artifacts
-react-portfolio/
-original-backup/
-
-# Node modules
+# Dependencies
 node_modules/
 
-# Build artifacts
+# Build output
+react-portfolio/dist/
+
+# Logs & OS files
 *.log
 .DS_Store
