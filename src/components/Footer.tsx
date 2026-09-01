@@ -1,14 +1,10 @@
-import React from 'react';
-
-const Footer: React.FC = () => {
+export default function Footer() {
   return (
-    <div id="footer">
-      <ul className="copyright">
-        <li>&copy; Untitled. All rights reserved.</li>
-        <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-      </ul>
-    </div>
+    <footer className="border-t border-line py-8 pb-12">
+      <div className="mx-auto flex max-w-[1120px] flex-wrap justify-between gap-2 px-5 font-mono text-[0.72rem] text-ink-dim sm:px-8">
+        <span>&copy; {new Date().getFullYear()} Keean Ferreira</span>
+        <span>Design direction: &ldquo;Coordinate Space&rdquo; &middot; IBM Plex</span>
+      </div>
+    </footer>
   );
-};
-
-export default Footer;
+}

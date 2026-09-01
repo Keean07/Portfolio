@@ -1,33 +1,35 @@
-import React from 'react';
+const links = [
+  { label: 'keeanferreira07@gmail.com', href: 'mailto:keeanferreira07@gmail.com' },
+  { label: 'github.com/Keean07', href: 'https://github.com/Keean07' },
+  { label: 'linkedin.com/in/keeanferreira', href: 'https://www.linkedin.com/in/keeanferreira/' },
+];
 
-const Contact: React.FC = () => {
+export default function Contact() {
   return (
-    <section id="contact" className="four">
-      <div className="container">
-        <header>
-          <h2>Contact</h2>
-        </header>
-
-        <p>
-          I will gladly answer any questions regarding my work and my availability for employment.
-          Please reach out to me using the contact details below. I look forward to hearing from you!
+    <section id="contact" className="border-t border-line py-[clamp(4.5rem,11vw,8.5rem)]">
+      <div className="mx-auto max-w-[1120px] px-5 sm:px-8">
+        <span className="eyebrow">// contact</span>
+        <h2 className="my-6 max-w-[16ch] font-mono text-[clamp(2rem,6vw,3.4rem)] font-medium tracking-[-0.03em]">
+          Let&apos;s build something<span className="text-accent">_</span>
+        </h2>
+        <p className="max-w-[60ch] text-ink-mid">
+          Open to games and graphics roles — remote, or relocating for the right team. The fastest
+          way to reach me is email.
         </p>
-
-        <div className="listDiv">
-          <p>Contact details are as follows:</p>
-          <ul>
-            <li>Email: <a href="mailto:keeanferreira07@gmail.com">keeanferreira07@gmail.com</a></li>
-            <li>Cell number: +27 (79) 9258 026</li>
-          </ul>
-          <p>Some links:</p>
-          <ul>
-            <li>GitHub: <a href="https://github.com/Keean07">https://github.com/Keean07</a></li>
-            <li>LinkedIn: <a href="https://www.linkedin.com/in/keeanferreira/">https://www.linkedin.com/in/keeanferreira/</a></li>
-          </ul>
+        <div className="mt-6 flex flex-wrap gap-x-8 gap-y-4 font-mono text-[0.9rem]">
+          {links.map((l) => (
+            <a
+              key={l.href}
+              href={l.href}
+              target={l.href.startsWith('http') ? '_blank' : undefined}
+              rel={l.href.startsWith('http') ? 'noreferrer' : undefined}
+              className="border-b border-line-strong pb-0.5 text-ink-mid transition-colors hover:border-accent hover:text-accent"
+            >
+              {l.label}
+            </a>
+          ))}
         </div>
       </div>
     </section>
   );
-};
-
-export default Contact;
+}
