@@ -1,3 +1,5 @@
+import { CV_FILENAME, CV_URL } from '../lib/cv';
+
 const links = [
   { label: 'keeanferreira07@gmail.com', href: 'mailto:keeanferreira07@gmail.com' },
   { label: 'github.com/Keean07', href: 'https://github.com/Keean07' },
@@ -16,7 +18,24 @@ export default function Contact() {
           I&apos;m a software developer in Pretoria (GMT+2), working remotely with UK-based teams.
           Always happy to talk about interesting work — email is the fastest way to reach me.
         </p>
-        <div className="mt-6 flex flex-col gap-3 font-mono text-[0.88rem] sm:flex-row sm:flex-wrap sm:gap-x-8 sm:gap-y-4 sm:text-[0.9rem]">
+
+        <div className="mt-7 flex flex-wrap items-center gap-3 font-mono text-[0.85rem]">
+          <a
+            href={CV_URL}
+            download={CV_FILENAME}
+            className="inline-flex items-center gap-[0.6ch] rounded-md bg-accent px-5 py-3 text-white transition-transform hover:-translate-y-0.5 hover:bg-accent-strong motion-reduce:hover:translate-y-0"
+          >
+            Download CV <span aria-hidden="true">↓</span>
+          </a>
+          <a
+            href="mailto:keeanferreira07@gmail.com"
+            className="inline-flex items-center rounded-md border border-line-strong px-5 py-3 text-ink-mid transition-transform hover:-translate-y-0.5 hover:border-ink-dim hover:text-ink motion-reduce:hover:translate-y-0"
+          >
+            Email me
+          </a>
+        </div>
+
+        <div className="mt-8 flex flex-col gap-3 font-mono text-[0.88rem] sm:flex-row sm:flex-wrap sm:gap-x-8 sm:gap-y-4 sm:text-[0.9rem]">
           {links.map((l) => (
             <a
               key={l.href}

@@ -1,4 +1,5 @@
 import { useTheme } from '../hooks/useTheme';
+import { CV_FILENAME, CV_URL } from '../lib/cv';
 
 const linkCls = 'text-ink-mid transition-colors hover:text-ink';
 
@@ -46,10 +47,11 @@ export default function Nav() {
             <span className="hidden sm:inline">{theme === 'dark' ? 'light mode' : 'dark mode'}</span>
           </button>
           <a
-            className="whitespace-nowrap rounded-md bg-accent px-2.5 py-1.5 text-white transition-colors hover:bg-accent-strong sm:px-3"
-            href="#contact"
+            className="inline-flex items-center gap-[0.5ch] whitespace-nowrap rounded-md bg-accent px-2.5 py-1.5 text-white transition-colors hover:bg-accent-strong sm:px-3"
+            href={CV_URL}
+            download={CV_FILENAME}
           >
-            contact
+            CV <span aria-hidden="true">↓</span>
           </a>
         </nav>
       </div>
